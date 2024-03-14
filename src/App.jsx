@@ -1,36 +1,21 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Card from "./components/Card";
+import CardsData from "./CardsData";
 function App() {
+  const Cards = CardsData.map(
+    item => {
+      return <Card
+        key={item.id}
+        item={item}
+      />
+    })
   return (
     <>
       <Navbar />
       <Hero />
-      <div className="flex flex-row ">
-      <Card
-        img="katie-zaferes.png"
-        rating="5.0"
-        reviewCount={6}
-        country="USA"
-        title="Life Lessons with Katie Zaferes"
-        price={136}
-      />
-      <Card
-        img="katie-zaferes.png"
-        rating="5.0"
-        reviewCount={6}
-        country="USA"
-        title="Life Lessons with Katie Zaferes"
-        price={136}
-      />
-      <Card
-        img="katie-zaferes.png"
-        rating="5.0"
-        reviewCount={6}
-        country="USA"
-        title="Life Lessons with Katie Zaferes"
-        price={136}
-      />
+      <div className="flex overflow-x-auto space-x-4 w-fit ">
+        {Cards}
       </div>
       
     </>
